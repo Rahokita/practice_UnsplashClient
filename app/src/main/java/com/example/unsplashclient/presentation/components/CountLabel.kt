@@ -3,9 +3,7 @@ package com.example.unsplashclient.presentation.components
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
@@ -20,6 +18,7 @@ fun CountLabel(
     count:Int,
     iconTint: Color,
     modifier:Modifier = Modifier,
+    color: Color = LocalContentColor.current.copy(alpha = LocalContentAlpha.current),
 ){
     Row(modifier = modifier) {
         Icon(
@@ -30,7 +29,7 @@ fun CountLabel(
         Spacer(modifier = Modifier.width(5.dp))
         Text(
             text = count.toString(),
-            color = Color.White,
+            color = color,
             style = MaterialTheme.typography.body1,
         )
     }
