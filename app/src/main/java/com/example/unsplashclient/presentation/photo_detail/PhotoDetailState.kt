@@ -1,4 +1,4 @@
-package com.example.unsplashclient.presentation
+package com.example.unsplashclient.presentation.photo_detail
 
 import com.example.unsplashclient.domain.model.PhotoDetail
 
