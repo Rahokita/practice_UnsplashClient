@@ -13,12 +13,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.unsplashclient.presentation.ScreenRoute
 import com.example.unsplashclient.presentation.search_photos.components.PhotoThumbnail
 import com.example.unsplashclient.presentation.search_photos.components.SearchBar
 
 
 @Composable
 fun SearchPhotosScreen(
+    navController: NavController,
     viewModel:SearchPhotosViewModel = hiltViewModel(),
 )
 {
@@ -50,7 +53,12 @@ fun SearchPhotosScreen(
                     LazyColumn(modifier = Modifier.padding(paddingValue)){
                         items(state.photos){ photo ->
                             // Text(text = photo.imageUrl)
-                            PhotoThumbnail(photo = photo, onClick = {})
+                            PhotoThumbnail(
+                                photo = photo,
+                                onClick = {
+                                          navController.navigate(ScreenRoute.PhotoDetailScreen.route + "/${photo.photoId}")
+                                },
+                            )
                         }
                     }
                 }
